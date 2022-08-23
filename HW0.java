@@ -1,3 +1,7 @@
+//Name: Miski Abdirizak 
+//Due Date: September 5, 2022 
+//CSC4520
+
 import java.util.*;
 
 public class HW0 {
@@ -22,6 +26,10 @@ public class HW0 {
     }
 
 
+
+
+
+    
     // Q2
     int[] testResult3 = twoSum(new int[] {0, 2, 3, 4, 5}, 6);
     int[] testResult4 = twoSum(new int[] {1, 2, 3, 4, 5}, 10);
