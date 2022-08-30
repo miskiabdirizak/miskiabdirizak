@@ -2,40 +2,34 @@
 //Due Date: September 5, 2022 
 //CSC4520
 
+import java.lang.management.ThreadInfo;
 import java.util.*;
 
 public class HW0 {
 
   public static void main(String[] args) {
+
     // Q1
+  
     int testResult1 = maxOfArray(new int[] {1, 3, 4, 5, 2});
     int testResult2 = maxOfArray(new int[] {-1, -3, -4, -5, -2});
 
     System.out.println(testResult1); // should output 5
     System.out.println(testResult2); // should output -1
-    boolean emptyCaseCorrect = false;
-    try {
-      maxOfArray(new int[] {});
-    } catch (IllegalArgumentException e) {
-      emptyCaseCorrect = true;
-    }
-    if (emptyCaseCorrect) {
-      System.out.println("maxOfArray appears to work for the empty array case");
-    } else {
-      System.out.println("maxOfArray appears to be incorrect for the empty array case");
-    }
+   
+  
 
-
-
-
-///create new branch than merge 
+///create new branch than merge
+//Add sorting algorithm 
 
     // Q2
-    int[] testResult3 = twoSum(new int[] {0, 2, 3, 4, 5}, 6);
-    int[] testResult4 = twoSum(new int[] {1, 2, 3, 4, 5}, 10);
-
-    System.out.println(Arrays.toString(testResult3)); // should output [1, 3]
-    System.out.println(Arrays.toString(testResult4)); // should output [-1, -1]
+    
+      int[] testResult3 = twoSum(new int[] {0, 2, 3, 4, 5}, 6);
+      int[] testResult4 = twoSum(new int[] {1, 2, 3, 4, 5}, 10);
+  
+      System.out.println(Arrays.toString(testResult3)); // should output [1, 3]
+      System.out.println(Arrays.toString(testResult4)); // should output [-1, -1]
+    
 
 
     // Q3
@@ -54,18 +48,19 @@ public class HW0 {
    * Why does your code work?
    */
   public static int maxOfArray(int[] arr) {
-      if(arr.length==0){
-        throw new UnsupportedOperationException("maxOfArray not yet written");
-
-      }else{
-        int maxInt =0;
-        for(int i=0; i<arr.length; i++){
+    if(arr == null){
+      throw new IllegalArgumentException("Array must not be null");
+    }else if(arr.length == 0){
+      throw new IllegalArgumentException("Array is empty");
+    }
+    
+     int maxInt =0;
+      for(int i=0; i<arr.length; i++){
           if(arr[i]>arr[maxInt]){
             maxInt =i;
           }
         }
         return arr[maxInt];  
-      }
   }
 
   /**
@@ -73,8 +68,20 @@ public class HW0 {
    * How did you approach the problem?
    * Why does your code work?
    */
-  public static int[] twoSum(int[] arr, int targetSum) {
-    throw new UnsupportedOperationException("twoSum not yet written");
+  public static int[] twoSum(int[] arr, int targetSum) throws IllegalArgumentException{
+    if(arr == null) {
+      throw new IllegalArgumentException("Array must not be NULL");
+    }else if(arr.length ==0){
+      throw new IllegalArgumentException("Array is empty");
+    }
+    for(int i =0; i<arr.length; i++){
+      for(int j=i+1; j<arr.length; j++){
+        if(arr[j] == targetSum - arr[i]){
+          return new int[] {i,j}; 
+        }
+      }
+    }
+    return new int[] {-1,-1}; 
   }
 
   /**
