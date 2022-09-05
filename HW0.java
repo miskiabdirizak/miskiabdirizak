@@ -20,8 +20,6 @@ public class HW0 {
 
 
 
-///create new branch than merge
-
     // Q2
     
       int[] testResult3 = twoSum(new int[] {0, 2, 3, 4, 5}, 6);
@@ -45,39 +43,48 @@ public class HW0 {
     System.out.println(testResult7); // should output [9, 2, 2, 3, 3, 7, 2, 0, 3, 6, 8, 5, 4, 7, 8, 8, 1, 5, 2]
   }
 
-  /**
-   * Add your key ideas to this comment.
-   * How did you approach the problem?
-   * Why does your code work?
-   */
+  /* Method to return the largest integer within the array */
   public static int maxOfArray(int[] arr) {
+    //Test Cases//
     if(arr == null){
       throw new IllegalArgumentException("Array must not be null");
     }else if(arr.length == 0){
       throw new IllegalArgumentException("Array is empty");
     }
     
-     int maxInt =0;
+    //Initalize the max element
+     int maxInt = 0;
+
+     /*Traverse the arrat from the first element
+      * compare every element w/ current max
+      */
       for(int i=0; i<arr.length; i++){
           if(arr[i]>arr[maxInt]){
-            maxInt =i;
+            maxInt = i;
           }
         }
-        return arr[maxInt];  
+        return arr[maxInt];  //return maxInt
   }
 
-  /**
-   * Add your key ideas to this comment.
-   * How did you approach the problem?
-   * Why does your code work?
-   */
+  /* Method that takes an array of int and target sum 
+   * returns 2-element array with 2 indices of elements that 
+   * sum up to target value
+  */
   public static int[] twoSum(int[] arr, int targetSum) throws IllegalArgumentException{
+    //Test cases//
     if(arr == null) {
       throw new IllegalArgumentException("Array must not be NULL");
     }else if(arr.length == 0){
       throw new IllegalArgumentException("Array is empty");
     }
-    for(int i =0; i<arr.length; i++){
+    
+    /*
+     * First loop: runs through each element to maintain the first index
+     * Second loop: maintains a seond index of the solution for every first int
+     * if sum of values of the two indices equals the target -> return indices
+     * otherwise return [-1,1]
+     */
+    for(int i =0; i<arr.length; i++){ 
       for(int j=i+1; j<arr.length; j++){
         if(arr[j] == targetSum - arr[i]){
           return new int[] {i,j}; 
@@ -87,45 +94,46 @@ public class HW0 {
     return new int[] {-1,-1}; 
   }
 
-  /**
-   * Add your key ideas to this comment.
-   * How did you approach the problem?
-   * Why does your code work?
-   */
+  /*Methods to Add sums of two arraylists and return their sum as a third list*/
   public static List<Integer> add(List<Integer> lst1, List<Integer> lst2)  {
+    //If the size of the first list is more than the second
     if(lst1.size() >= lst2.size()){
       return addUtil(lst1, lst2); 
-    }else {
+    }else { //Swap the lists if the size of lst 2 is more than lst1
       return addUtil(lst2, lst1);
     }
   }
-    
+    //method to help traverse through the lists and the add the elements 
   public static List<Integer>addUtil(List<Integer>lst1, List<Integer> lst2){
+    //Initialize size, carry, and sum 
     int i = lst1.size()-1, carry =0, sum =0; 
-    int j = lst2.size()-1, k=1;
+    int j = lst2.size()-1;
+    //Result list
     List<Integer> result = new ArrayList<Integer>(); 
 
+    //loop until the first element
     while(j>=0){
+      //summ the two nummbers and add it to the front
       sum = lst1.get(i) + lst2.get(j) + carry; 
       result.add(0,(sum%10)); 
-
+      //carry
       carry = sum/10; 
       i--;
       j--;
-      k--;
     }
 
+    //check if a list still have leftover elements
     while(i>=0){
+      //continue adding
       sum = lst1.get(i) + carry; 
       result.add(0,(sum%10)); 
       carry = sum /10; 
       i--;
-      k--;
     }
-
+//if there is a carry add it to the result
     if(carry==1)
       result.add(0,1);
-    return result; 
+    return result; //return the sum as result
   }
   
 
