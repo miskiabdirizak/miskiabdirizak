@@ -1,6 +1,7 @@
 //Name: Miski Abdirizak 
-//Due Date: September 5, 2022 
-//CSC4520
+//Due Date: September 5, 2022
+//CSC4520: Design and Analysis: Algorithms
+
 
 import java.util.*;
 
