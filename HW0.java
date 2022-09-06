@@ -113,7 +113,7 @@ public class HW0 {
 
     //loop until the first element
     while(j>=0){
-      //summ the two nummbers and add it to the front
+      //sum the two nummbers and add it to the front
       sum = lst1.get(i) + lst2.get(j) + carry; 
       result.add(0,(sum%10)); 
       //carry
