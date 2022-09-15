@@ -43,7 +43,7 @@ public class HW1 {
   }
   
   /*algorithm findMissing
-  * Input: integer array A of length N where each element is distinct   and in the range [0, N]
+  * Input: integer array A of length N where each element is distinct and in the range [0, N]
   * Output: integer x where x is in the range [0, N], but not in A
   *  s = the sum of all numbers in A
   *  return (N(N+1))/2 - s
@@ -57,7 +57,7 @@ public class HW1 {
     int n = arr.length;
 
     int s = 0; //initialize s = the sum of all numbers in A
-    for(int i=0; i<arr.length; i++){ //iterate throw the array
+    for(int i=0; i<arr.length; i++){ //iterate through the array
       s += arr[i]; //add value of arr[i] to the sum 
     }
     //return the total sum of numbers b/w 1 and n=arr.length
@@ -66,7 +66,7 @@ public class HW1 {
 
   /*
    * Input:Int
-   * Output: num times the number 5 appears as a digit in the numver 
+   * Output: number of times the number 5 appears as a digit in the numver 
    */
   public static int countFives(int num) {
     //Base case
@@ -85,37 +85,32 @@ public class HW1 {
   }
 
   /**
-   * Add your key ideas to this comment.
-   * How did you approach the problem?
-   * Why does your code work?
+   *Using a helper method to solve the problem recursively
    */
   public static int pickTrees(int[] arr) {
-    throw new UnsupportedOperationException("pickTrees not yet written");
-  }
+    //pass zero as index and sum 
+    return pickTreesHelper(arr, 0, 0); 
 }
 
-
-//Q2 
-/* 
- * Convert the following code into Pseudocode and put it in twosum.txt. Hint: for some loops, you
-should describe what it does in English. There are no tests for this problem, so be sure to
-double check and test your translation manually, similar to how we did in lecture. ***
-
-  public static int[] twoSumFast(int[] arr, int target) {
-    HashSet<Integer> seen = new HashSet<>();
-    for (int j = 0; j < arr.length; j++) {
-      int otherAddend = target - arr[j];
-      if (seen.contains(otherAddend)) {
-        for (int i = 0; i < arr.length; i++) {
-          if (arr[i] == otherAddend) {
-            return new int[] {i, j};  
-          }
-        }
-      } else {
-        seen.add(arr[j]);
-      }
+/* Helper Method *
+* Helps find the max number of trees 
+* Pass an index as the current location and sum as the sum of trees picked
+*/ 
+  public static int pickTreesHelper(int [] arr, int index, int sum) {
+      /* Base Case*/
+    //if index is >= the length of the array return current sum
+    if (index >= arr.length) {
+      return sum; 
     }
-    return new int[] {-1, -1};  
-  }
-*/
+
+    //Sum1: Move to next location without picking the tree at the current location 
+    int s1 = pickTreesHelper(arr, index +1, sum);
+    //Sum2: Skip the next location. Move to next, next location after picking tree in current location 
+    int s2 = pickTreesHelper(arr, index + 2, sum + arr[index]);
+
+    //return the sum that is largest
+    return Math.max(s1, s2);
+ }
+ 
+}
 
