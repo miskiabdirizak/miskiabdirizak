@@ -1,0 +1,43 @@
+/Q2 
+/* 
+ * Convert the following code into Pseudocode and put it in twosum.txt. Hint: for some loops, you
+should describe what it does in English. There are no tests for this problem, so be sure to
+double check and test your translation manually, similar to how we did in lecture. ***
+
+  public static int[] twoSumFast(int[] arr, int target) {
+    HashSet<Integer> seen = new HashSet<>();
+    for (int j = 0; j < arr.length; j++) {
+      int otherAddend = target - arr[j];
+      if (seen.contains(otherAddend)) {
+        for (int i = 0; i < arr.length; i++) {
+          if (arr[i] == otherAddend) {
+            return new int[] {i, j};  
+          }
+        }
+      } else {
+        seen.add(arr[j]);
+      }
+    }
+    return new int[] {-1, -1};  
+  }
+*/
+
+
+SOLUTION: 
+algorithm twoSumFast
+  Input: an array of integers and target sum 
+  Output: 2-element array that represents two distinct indices of elements that sum up to the target value
+
+seen = new HashSet
+for each element j in array, 
+  otherAddend = target - arr[j]; 
+  if hashset contains otherAddend
+    for each element i in array 
+      if element i == otherAddend
+        return current indices {i,j}
+
+  else 
+    seen.add(arr[j])     
+  return new int [] {-1,1}
+}
+/
