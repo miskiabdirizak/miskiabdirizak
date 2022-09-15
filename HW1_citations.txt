@@ -1,4 +1,6 @@
 List the names of any students you worked with to complete this assignment.
-
+N/A
 
 Link any references / videos / online tutorials / etc. that you used to complete this assignment.
+Question 1: https://www.geeksforgeeks.org/find-the-missing-number/
+Question 4: https://stackoverflow.com/questions/70896940/what-should-be-passed-as-tree-when-returning-the-treehelper-method-in-picktree
