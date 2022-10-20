@@ -1,0 +1,35 @@
+Miski Abdirizak 
+CSC 4520 
+HW 3 
+
+1) Assuming T is defined in Java, what code do I write to get "sun" back?
+
+/*Solution*/
+System.out.println(T.getChildren().get(0).getChildren().get(0).getValue()); 
+
+
+2) What will  System.out.println(T.getChildren().get(2).getChildren())
+output? Be as specific as possible.
+
+/*Solution*/
+  When we first do "t.getChildren() we will get the first level of children nodes of the tree, which are
+  "lit", "cap", and "cat. From there, when we run.get(2), we retrieve the node qirh index=2, which is "cat". 
+  Then, when we do .getChildren() again, it will retrieve all of the children nodes under "cat". Since we only used .getChildren(), the output will not be the value of the retrieved 
+  node but rather, the line of code will print a list of the objects that are children of "cat". There is only 
+  one child node under "cat", which is "pup". So it will output a list of the "pup" node's address. 
+
+**Build the tree in replit and try to solve all of the
+
+3) Given the following code, what will we output for mystery(T)?
+
+public static void mystery(TreeNode<String> node) {
+  List<TreeNode<String>> children = node.getChildren();
+  for (int i = 1; i < children.size(); i++) {
+    TreeNode<String> child = children.get(i);
+    System.out.println(child.getValue());
+    mystery(child);
+  }
+
+/*Solution*/
+  This function prints out the value of all of the children nodes except for the root node. 
+ 
