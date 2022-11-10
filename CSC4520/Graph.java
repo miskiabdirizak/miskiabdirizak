@@ -1,5 +1,6 @@
 import java.util.*;
 import java.io.*;
+
 public class Graph {
     public int [][] matrix; 
     public int vertices; 
@@ -47,7 +48,10 @@ public class Graph {
         System.out.println(); 
     }
 
+    
+
     public static void main(String[] args){
+       
         Graph graph = new Graph(5); 
         graph.addEdge(1, 0);
         graph.addEdge(2, 0);
@@ -66,5 +70,3 @@ public class Graph {
 
 
 }
-
-
