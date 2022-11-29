@@ -8,18 +8,17 @@ import java.util.*;
  */
 
  /* Q2 */
-
 public class HW5{
     public static void main(String[] args) {
         //test case 
         int [][] points = {{0,0},{2,2},{3,10},{5,2},{7,0}};
                              
-        System.out.println("Output: " + minCost(points));
+        System.out.println("Minimum cost: " + minCost(points));
     } 
 //implmenting prim's algorithm
     public static int minCost(int [][] points) {
         int n = points.length, answer = 0; 
-        HashSet<Integer> mst = new HashSet<>(); //creatubg a minimum spaning tree 
+        HashSet<Integer> mst = new HashSet<>(); //creating a minimum spaning tree 
         mst.add(0); 
         int [] distance = new int[n]; 
 
@@ -27,7 +26,7 @@ public class HW5{
             distance[i] = findDistance (points, 0,i); 
         }
 
-        while(mst.size() != n){ //find node w/ shortest distance
+        while(mst.size() < n){ //find node w/ shortest distance
             int next = -1; 
             for(int i = 0; i <n; i++){
                 if(mst.contains(i)) 
@@ -48,8 +47,10 @@ public class HW5{
         }
         return answer; 
     }
+    //Calculate Manhatten Distance
     public static int findDistance(int [][] points, int a, int b){
         return Math.abs(points[a][0] - points [b][0]) + Math.abs(points[a][1] - points[b][1]);
     }
 
 }
+
